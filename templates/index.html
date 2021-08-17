@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viraj's Cv</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d067c434dc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+<!-- navbar start -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-lg">
+      <a class="navbar-brand fw-bold fs-4" href="/">Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active ms-4" aria-current="page" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-4" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-4" href="#project">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-4 " href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<!-- navbar end -->
+
+<!-- home section start -->
+
+<section class="home bg-light" id="home">
+    <div class="container-lg">
+        <div class="row row1">
+            <div class="col-md-6 mb-3">
+                <div class="home-img mt-3 mb-2 w-100 ">
+                    <img src="{{p.image.url}}" class="rounded-circle" alt="profile image">
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="home-text mt-3 mb-2">
+                    <p class="text-muted">Hello, I'm</p>
+                    <h2 class="fs-4"> {{p.name}} </h2>
+                    <h1 class="text-primary text-uppercase fw-bold fs-1">Full Stack Developer</h1>
+                    <p class="text-muted mt-4">{{p.about}}</p>
+                    <a href="#project" class="btn btn-primary ">My Projects</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- home section end -->
+
+<!-- about section start -->
+
+<section class="about bg-white py-5" id="about">
+    <div class="container-lg py-4">
+        <div class="row justify-content-centre">
+            <div class="col-lg-12 ">
+                <div class="section-title text-center">
+                    <h2 class="fw-bold mb-5">About Me</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-text">
+                    <h3 class="fs-4 mb-3"></h3>
+                    <p class="text-muted">  I did my graduation in Mechanical Engineering but want to persue career in web development, working with no. of projects in technologies like Python, Django Framework, HTML, CSS, Javascript, Bootstrap.</p>
+                    <p class="text-muted">I take my work as a Web Developer seriously and this means I always ensure my skills are kept up to date within this rapidly changing industry.</p>
+                    <p class="text-muted">You can Download my resume from below to know more about me.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 d-flex align-items-center">
+                        <a href="{% static 'Viraj_Holmukhe_CV2021.pdf' %}" target="_blank" class="btn btn-primary me-5">Download CV</a>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/viraj-holmukhe/" target="_blank" class="text-dark me-2"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://twitter.com/indian_vir" target="_blank" class="text-dark me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/indian_vir/" target="_blank" class="text-dark me-2"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-5 mt-md-0">
+                {% for l in lang %}
+                <div class="skill-item mb-4">
+                    <h3 class="fs-6">{{l.name}}</h3>
+                    <div class="progress" style="height: 5px;">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{l.knowledge}}%;" aria-valuenow="{{l.knowledge}}" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- about section end -->
+
+<!-- my projects start -->
+
+<section class="project bg-light py-5" id="project"> 
+    <div class="container-lg py-4">
+        <div class="row justify-content-centre" >
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <h2 class="fw-bold mb-5">Projects</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for project in project %}
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="project-item">
+                    <img src="{{project.image.url}}" class="w-100 img-thumbnail" alt="Project Screenshot">
+                    <h3 class="fs-5 my-2">{{project.name}}</h3>
+                    {% if project.url %}
+                    <p class="mb-3 mt-2"><a href="{{project.url}}" target="_blank" class="text-primary text-decoration-none">Live Link of Project</a></p>
+                    <p class="mb-3 mt-2 text-muted">{{project.about}}</p>
+                    {% else %}
+                    {% endif %}
+                    <p class="mb-3 mt-2"><a href="{{project.repo}}" target="_blank" class="text-primary text-decoration-none">GitHub Repository</a></p>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+<!-- my projects end -->
+
+<!-- Contact section Start -->
+
+<section class="contact bg-white py-5" id="contact">
+    <div class="container-lg py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class= "section-title text-center">
+                    <h2 class="fw-bold mb-5">Contact Me</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="contact-item d-flex">
+                    <div class="icon fs-4 text-primary">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="text ms-3">
+                        <h3 class="fs-5">Email</h3>
+                        <p class="text-muted">{{contact.email}}</p>
+                    </div>
+                </div>
+                <div class="contact-item d-flex mb-3">
+                    <div class="icon fs-4 text-primary">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="text ms-3">
+                        <h3 class="fs-5">Phone</h3>
+                        <p class="text-muted">+91 {{contact.phone}}</p>
+                    </div>
+                </div>
+                <div class="contact-item d-flex mb-3">
+                    <div class="icon fs-4 text-primary">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="text ms-3">
+                        <h3 class="fs-5">Location</h3>
+                        <p class="text-muted">{{contact.address}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="contact-form">
+                    <form method="POST"> {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <input type="text" name="name" id="name" placeholder="Your Name" class="form-control form-control-lg fs-6 border-0 shadow-sm">
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <input type="text" name="email" id="email" placeholder="Your Email" class="form-control form-control-lg fs-6 border-0 shadow-sm">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 mb-4">
+                                <input type="text" name="subject" id="subject" placeholder="Subject..." class="form-control form-control-lg fs-6 border-0 shadow-sm">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 mb-4">
+                                <textarea rows="5" name="message" id="message" placeholder="Enter your message ..." class="form-control form-control-lg fs-6 border-0 shadow-sm"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 mb-4">
+                                <button class="btn btn-primary px-3" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact section End -->
+
+<!-- Footer start -->
+
+<footer class="footer bg-light border-top py-4">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="m-0 text-center text-muted">&copy; All rights reserved</p>
+            </div> 
+        </div>
+    </div>
+</footer>
+
+<!-- Footer End -->
+</body>
+</html>
+
+<!--
+
+<nav class="navbar navbar-light bg-light shadow-sm">
+    <div class="container-lg">
+        <a class="navbar-brand fw-bold fs-4" href="/">Portfolio</a>
+        <div class="dropdown">
+            <button class="btn btn-secondary px-3" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#home">Home</a></li>
+                <li><a class="dropdown-item" href="#about">About</a></li>
+                <li><a class="dropdown-item" href="#project">Portfolio</a></li>
+                <li><a class="dropdown-item" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+-->

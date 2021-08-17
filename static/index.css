@@ -1,0 +1,19 @@
+.row1{
+    align-items: center;
+    align-content: center;
+    min-height: 80vh;
+}
+.row2{
+    justify-content: center;
+}
+.rounded-circle{
+    height: 300px;
+    width: 300px;
+}
+.home-img{
+    text-align: center;
+}
+.home{
+    margin-top: 60px ;
+    margin-bottom: 60px ;
+}
